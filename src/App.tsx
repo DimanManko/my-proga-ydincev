@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Button} from "./components/Button";
+import {subscribe} from "node:diagnostics_channel";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const Button1Foo = (subscriber:string,age:number,address: string) => {
+        console.log(subscriber,age,address)
+    }
+    const Button2Foo = (subscriber: string) => {
+        console.log(subscriber)
+    }
+
+    return (
+        <div className="App">
+            {/*<button>MyYouTubeChanel-1</button>
+      <button>MyYouTubeChanel-2</button>*/}
+            <Button name={'MyYouTubeChanel-1'} callBack={()=>Button1Foo('Im Vasya',22,"Chabarovsk")}/>
+            <Button name={'MyYouTubeChanel-2'} callBack={()=>Button2Foo( 'Im Ivan')}/>
+        </div>
+    );
 }
 
 export default App;
