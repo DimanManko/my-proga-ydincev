@@ -22,5 +22,9 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "paths": {
+    "react": [ "./node_modules/@types/react" ]
+  },
+  "types": ["react-native", "jest"]
 }
